@@ -2,15 +2,23 @@
 
 ###Opening questions for user###
 
+
+if [ "$1" == "-h" ]; then
+  echo "Usage: This script is used to work with ssh rsa keys"
+  exit 0
+fi
+
+
+
+
 echo "Input 1 to genarate a new RSA key and copy it to a server"
 
 echo "Input 2 to copy a exsiting RSA key to a server please note this verison only supports keys located under ~/.ssh"
 
-###Take case input number from user###
 
-read case
+select case in "genarate a new RSA key and copy it to a server" "copy a exsiting RSA key to a server please note this verison only supports keys located under ~/.ssh"
 
-
+do
 
 
 
@@ -19,7 +27,7 @@ case $case in
 
 ###User has inputted option 1 statments are made###
 
-  "1" ) echo "Make sure your running this as the user you need to genrate a RSA key for"
+  "genarate a new RSA key and copy it to a server" ) echo "Make sure your running this as the user you need to genrate a RSA key for"
 
   echo "READ ME you will be asked for a passphrase you may leave this blank by pressing enter when asked if you set one don't forget it!"
 
@@ -79,7 +87,7 @@ case $case in
 
 
 
- "2" ) echo "Make sure your running this as the user you need to copy a RSA key for"
+ "copy a exsiting RSA key to a server please note this verison only supports keys located under ~/.ssh" ) echo "Make sure your running this as the user you need to copy a RSA key for"
 
  echo "Please input the username of the system you wish to copy the RSA key to NOTE this is case sensitive"
 
@@ -98,3 +106,5 @@ case $case in
   *) echo "Sorry not a vaild choice better luck next time ya know" ;;
 
 esac
+
+done
